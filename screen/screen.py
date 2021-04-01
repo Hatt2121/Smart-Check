@@ -1,6 +1,7 @@
 import epd4in2 as e
 from PIL import Image, ImageDraw,ImageFont
 import RPi.GPIO as GPIO
+from time import sleep
 
 CHECKBOX_LENGTH = 50
 
