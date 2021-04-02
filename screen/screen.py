@@ -39,22 +39,24 @@ class Screen(e.EPD):
                 cushion_top += 100
         self.display(self.getbuffer(Mainimage))
         
-        def turn_in(self,item):
-            TurninImage = Image.new('1', (e.EPD_WIDTH,e.EPD_HEIGHT), 255)
-            draw = ImageDraw.Draw(TurninImage)
-            draw.rectangle((cushion_left, 125, cushion_left+50, 175), fill = GRAY1, outline=GRAY4)
-            draw.text((100,125),item,font=self.arial,fill = e.GRAY4)
+    def turn_in(self,item):
+        cushion_left = 25
+        cushion_top = 25
+        TurninImage = Image.new('1', (e.EPD_WIDTH,e.EPD_HEIGHT), 255)
+        draw = ImageDraw.Draw(TurninImage)
+        draw.rectangle((cushion_left, 125, cushion_left+50, 175), fill = e.GRAY1, outline= e.GRAY4)
+        draw.text((100,125),item,font=self.arial,fill = e.GRAY4)
 
-            self.display(self.getbuffer(TurninImage))
-            time.sleep(2)
-            self.Clear()
+        self.display(self.getbuffer(TurninImage))
+        sleep(2)
+        self.Clear()
 
-            TurninImage = Image.new('1', (e.EPD_WIDTH,e.EPD_HEIGHT), 255)
-            draw = ImageDraw.Draw(TurninImage)
-            draw.rectangle((cushion_left, 125, cushion_left+50, 175), fill = GRAY1, outline=GRAY4)
-            draw.text((100,125),item,font=self.arial,fill = e.GRAY4)
-            draw.line((25,125,75,175), fill= GRAY4)
-            self.display(self.getbuffer(TurninImage))
-            time.sleep(2)
-            self.Clear()
+        TurninImage = Image.new('1', (e.EPD_WIDTH,e.EPD_HEIGHT), 255)
+        draw = ImageDraw.Draw(TurninImage)
+        draw.rectangle((cushion_left, 125, cushion_left+50, 175), fill = e.GRAY1, outline= e.GRAY4)
+        draw.text((100,125),item,font=self.arial,fill = e.GRAY4)
+        draw.line((25,125,75,175), fill= e.GRAY4)
+        self.display(self.getbuffer(TurninImage))
+        sleep(2)
+        self.Clear()
 
