@@ -15,6 +15,9 @@ class Screen(e.EPD):
     def __init__(self):
         e.EPD.__init__(self)
         self.arial = ImageFont.truetype("arial.ttf")
+
+        self.Clear()
+        self.init()
     
     def print_main(self, item_list):
         '''
