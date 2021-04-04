@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw,ImageFont
 import RPi.GPIO as GPIO
 from time import sleep
 
-CHECKBOX_LENGTH = 50
+#CHECKBOX_LENGTH = 50
 
 class Screen(e.EPD):
     def __init__(self):
