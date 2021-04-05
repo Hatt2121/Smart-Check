@@ -14,7 +14,7 @@ from time import sleep
 class Screen(e.EPD):
     def __init__(self):
         e.EPD.__init__(self)
-        self.arial = ImageFont.truetype("arial.ttf")
+        self.arial = ImageFont.truetype("arial.ttf", 25)
 
         self.Clear()
         self.init()
