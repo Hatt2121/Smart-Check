@@ -12,12 +12,13 @@ from time import sleep
 #CHECKBOX_LENGTH = 50
 
 class Screen(e.EPD):
+    '''
+    After you construct the object, make sure you do {Object}.init() this 
+    function initializes the screen.
+    '''
     def __init__(self):
         e.EPD.__init__(self)
         self.arial = ImageFont.truetype("arial.ttf", 25)
-
-        self.Clear()
-        self.init()
     
     def print_main(self, item_list):
         '''
@@ -36,12 +37,14 @@ class Screen(e.EPD):
         cushion_left = 25
         cushion_top = 25
         for i in items:
-            if(type(str) == type(i)):
-                draw.rectangle((cushion_left,cushion_top,cushion_left+50,cushion_top+50), fill = e.GRAY1, outline=e.GRAY4)
-                draw.text((cushion_left+75, cushion_top),i,font=self.arial, fill= e.GRAY4)
-                cushion_top += 100
-        self.display(self.getbuffer(Mainimage))
+            draw.rectangle((cushion_left,cushion_top,cushion_left+50,cushion_top+50), fill = e.GRAY1, outline=e.GRAY4)
+            draw.text((cushion_left+75, cushion_top),i,font=self.arial, fill= e.GRAY4)
+            cushion_top += 100
         
+        self.display(self.getbuffer(Mainimage))
+        self.Clear()
+        self.sleep()
+
     def turn_in(self,item):
         cushion_left = 25
         cushion_top = 25
