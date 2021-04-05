@@ -21,8 +21,8 @@ class SmartCheck:
 
         self.v1 = IntVar()
 
-        Add_Item = Radiobutton(frame1, text="Process Fixed Amount of Tags", bg="white", fg = "black", variable=self.v1, value=1, command=self.processRadiobutton)
-        Read_Item = Radiobutton(frame1, text = "Read Multiple Tags", bg="white", fg = "black",  variable=self.v1, value=2, command=self.unlim) 
+        Add_Item = Radiobutton(frame1, text="Process a Single Tag", bg="white", fg = "black", variable=self.v1, value=1, command=self.processRadiobutton)
+        Read_Item = Radiobutton(frame1, text = "Process Fixed Amount of Tags", bg="white", fg = "black",  variable=self.v1, value=2, command=self.unlim) 
 
         Add_Item.grid(row=1, column=1)
         Read_Item.grid(row=1, column=2) 
@@ -36,19 +36,16 @@ class SmartCheck:
         
 
         label = Label(frame2, text = "Enter name of the item: ")
-        self.item_name = Entry(frame2, textvariable=self.name, width = 15)
+        self.item_name = Entry(frame2, textvariable=self.name, width = 10)
 
         label2 =Label(frame2, text = "Enter the number of items to be added: ")
-        item_num = Entry(frame2, textvariable = self.scans)
-
-        label3 = Label(frame2, text = "Enter name of item for SN: ")
-        item_id = Entry(frame2,textvariable = self.itemInfo, width = 15)
+        item_num = Entry(frame2, textvariable = self.scans, width = 10)
 
 
         Read_Items = Button(frame2, text ="Read", command = self.readTag)
         Write_Items = Button(frame2, text="Scan", command=self.writeTag)
         Display_Items = Button(frame2, text="Display Inventory", command=self.showInventory)
-        Information = Button(frame2, text="Search", command=self.serialNum)
+        Del_Inventory = Button(frame2, text="Clear", command=self.clear)
 
 
         label.grid(row=2, column=1)
@@ -57,25 +54,20 @@ class SmartCheck:
         label2.grid(row=2, column=3)
         item_num.grid(row=2, column=4)
 
-        label3.grid(row=3, column=1)
-        item_id.grid(row=3, column=2)
-
-
-        Read_Items.grid(row=4, column=4)
-        Write_Items.grid(row=4, column=1)
-        Display_Items.grid(row=4, column=3)
-        Information.grid(row=4, column=2)
-
+        Read_Items.grid(row=4, column=2, sticky = W + E)
+        Write_Items.grid(row=4, column=1, sticky = W + E)
+        Display_Items.grid(row=4, column=3,sticky = W + E)
+        Del_Inventory.grid(row=4, column=4, sticky = W + E)
 
         self.text = Text(window)  
-        self.text.pack()
-        self.text.insert(END, "Welcome to SmartCheck. Inventory Items will appear below.")
+        self.text.pack(fill = X)
+        self.text.insert(END, "Welcome to Smart Check. Inventory Items will appear below.")
 
         window.mainloop() 
 
     def processRadiobutton(self):
         if self.v1.get() == 1:
-            self.text.insert(END,"\nEnter item name above and press 'scan'.\n")
+            self.text.insert(END,"\nEnter item name, scan count, or Item above and press 'Scan' or 'Read'.\n")
 
         else:
             self.text.insert(END,"\nPlace your item near the scanner and press 'Read'.\n")
@@ -107,8 +99,6 @@ class SmartCheck:
         self.text.insert(END,"\nItem name {}\nItem ID {}\n".format(text, id))
         self.inventory[text] = id
 
-
-
     def showInventory(self):
         self.text.insert(END,"\n")
         for k in self.inventory.keys():
@@ -126,19 +116,14 @@ class SmartCheck:
             self.inventory[text] = id
         self.showInventory()
 
-    def serialNum(self):
-        for k in self.inventory.keys():
-            if k == self.itemInfo.get():
-                self.text.insert(END, k, ":\n", self.inventory[k], "\n")
-            
-        
-        
+    def clear(self):
+        self.inventory.clear()
+        self.text.insert(END,"\nInventory is clear\n")
 
                 
-            
-            
-        
-        
+          
+
+                        
 #main code
 ################################
 SmartCheck()
