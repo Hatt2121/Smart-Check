@@ -22,7 +22,7 @@ def print_main(item_list):
                 items.append(NULL)
             continue
 
-        Mainimage = Imagepd.new('1', (epd.EPD_WIDTH,epd.EPD_HEIGHT), 255)
+        Mainimage = Image.new('1', (epd.EPD_WIDTH,epd.EPD_HEIGHT), 255)
         draw = ImageDraw.Draw(Mainimage)
         cushion_left = 25
         cushion_top = 25
