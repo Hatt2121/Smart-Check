@@ -12,4 +12,3 @@ sleep(5)
 
 s.turn_in(items[0])
 sleep(5)
-h.Clear()

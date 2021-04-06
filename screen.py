@@ -46,7 +46,6 @@ def turn_in(item):
     draw.text((100,125),item,font=arial,fill = epd.GRAY4)
     
     screen.display(screen.getbuffer(TurninImage))
-    sleep(2)
     screen.Clear()
 
     TurninImage = Image.new('1', (epd.EPD_WIDTH,epd.EPD_HEIGHT), 255)
