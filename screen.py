@@ -33,7 +33,6 @@ def print_main(item_list):
         
         screen.display(screen.getbuffer(Mainimage))
         screen.Clear()
-        screen.exit()
 
 def turn_in(item):
     screen = epd.EPD()
