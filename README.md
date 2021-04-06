@@ -16,3 +16,16 @@ Smart check is a simple project dedicated to inventory management in a time wher
 |DC|22|
 |RST|11|
 |BUSY|18|
+
+### RFID Scanner: RC522
+
+| Output | Physical Pin |
+| ---- | ---- | 
+| SDA | 24 |
+| SCK | 23 | 
+| MOSI | 19 |
+| MISO | 21 |
+| IRQ | UNUSED |
+|GND | 6 |
+| RST | 22 |
+| 3.3V | 1 |
