@@ -46,7 +46,6 @@ class RaspberryPi:
 
         self.GPIO = RPi.GPIO
         self.SPI = spidev.SpiDev()
-        self.module_init()
 
     def digital_write(self, pin, value):
         self.GPIO.output(pin, value)

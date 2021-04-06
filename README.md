@@ -2,6 +2,8 @@
 
 Smart check is a simple project dedicated to inventory management in a time where there are an abundant amount of passive RFID tags, and low power E-Ink screens. This project is dedicated to creating a simple experience for those managing other's contents in a situation where they are trying to micromanage their lives. 
 
+Before testing out the code you need to install `mfrc522` python library.
+
 ## Wiring:
 
 ### 4.2 E-Ink Screen
