@@ -46,12 +46,7 @@ def turn_in(item):
     draw.text((100,125),item,font=arial,fill = epd.GRAY4)
     
     screen.display(screen.getbuffer(TurninImage))
-    screen.Clear()
 
-    TurninImage = Image.new('1', (epd.EPD_WIDTH,epd.EPD_HEIGHT), 255)
-    draw = ImageDraw.Draw(TurninImage)
-    draw.rectangle((cushion_left, 125, cushion_left+50, 175), fill = epd.GRAY1, outline= epd.GRAY4)
-    draw.text((100,125),item,font=arial,fill = epd.GRAY4)
     draw.line((25,125,75,175), fill= epd.GRAY4)
     screen.display(screen.getbuffer(TurninImage))
     sleep(2)
