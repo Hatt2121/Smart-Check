@@ -1,9 +1,11 @@
+import tkinter
 from tkinter import *
+from PIL import Image, ImageTk
 import RPi.GPIO as GPIO
 import time
 from mfrc522 import SimpleMFRC522
 import pygame
-import re
+
     
 inventory = {}
 reader = SimpleMFRC522()
@@ -16,7 +18,7 @@ def start_up():
     green_Led = 16
     GPIO.setup(green_Led, GPIO.OUT)
     
-    admin = ["Ariel Lee"]
+    admin = ["Ariel Lee", "Devon Fears"]
     opening = pygame.mixer.Sound('three.wav')
     for i in range(3):
         GPIO.output(red_Led, GPIO.HIGH)
@@ -30,7 +32,7 @@ def start_up():
     a = text.split()
     a.append("extra")
     t = str(a[0] + " " + a[1])
-    if t == admin[0]:
+    if t == admin[0] or t == admin[1]:
         GPIO.output(red_Led,GPIO.LOW)
         for i in range (2):
             correct = pygame.mixer.Sound('two.wav')
@@ -40,9 +42,37 @@ def start_up():
             GPIO.output(green_Led,GPIO.LOW)
             time.sleep(.5)
         print("Welcome to Smart Check {} {}".format(a[0],a[1]))
+        LoadScreen()
 
     else:
         start_up()
+
+class LoadScreen:
+    def __init__(self):
+        root = Tk()
+        root.title("Smart Check")
+        self.Widgets(root)
+
+    def Widgets(self,root):
+        frame0 = Frame(root, width=500, height=300)
+        frame0.pack()
+        frame4 = Frame(root)
+        frame4.pack()
+        Begin = Button(frame4, text ="Begin", command = root.destroy)
+        Begin.grid(row=1, column=2,sticky = W + E, rowspan = 15 )
+
+        image1 = Image.open("New Smart Check.png")
+        test = ImageTk.PhotoImage(image1)
+
+        label1 = tkinter.Label(image=test)
+        label1.image = test
+
+
+        label1.place(x=250, y=120, anchor="center")
+
+        root.mainloop()
+
+        
 
 class SmartCheck:
     def __init__(self):
@@ -231,6 +261,7 @@ class SmartCheck:
 ################################
 start_up()
 SmartCheck()
+
     
     
 
