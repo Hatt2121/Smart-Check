@@ -1,5 +1,5 @@
 # /*****************************************************************************
-# * | File        :	  epdconfig.py
+# * | File        :   epdconfig.py
 # * | Author      :   Waveshare team
 # * | Function    :   Hardware underlying interface
 # * | Info        :
