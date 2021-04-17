@@ -1,4 +1,6 @@
 import imbox
+import smtplib, ssl
+import email
 import os
 import traceback
 
@@ -23,4 +25,28 @@ def download_attachment():
 
     mail.logout()
 
-download_attachment()
+
+def return_attachment(email, item_dict):
+    file = open("return_attachment.txt","w")
+    for key, value in d.item_dict:
+        file.write(str(key) + "\n")
+
+    msg = email.mime.MIMEMultipart()
+    msg['From'] = "smartcheck021@gmail.com"
+    msg['To'] = email
+    msg['Subject'] = "Smart_list"
+
+    attachment = email.mime.text.MimeText(file)
+    attachment.add_heaader('Content-Disposition','attachment',filename=file.name)
+    msg.attach(attachment)
+
+    try:
+        context = ssl.create_deafault_context()
+        smtp = smtplib.SMTP_SSL("smtp.gmail.com",465,context = context)
+        smtp.login("smartlist021@gmail.com","MatterH27h")
+        smtp.sendmail("smartlist021@gmail.com",email,msg.as_string())
+
+    except:
+        print("Some sort of network failure happened trying to send the eamil.")
+    finally:
+        smtp.close()
