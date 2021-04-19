@@ -16,8 +16,8 @@ def download_attachment():
         for idx, attachment in enumerate(message.attachments):
             try:
                 att_fn = attachment.get('filename')
-                download_path = f"{download_folder}"
-                open(download_path).write(attachment.get('content').read())
+                download_path = "{}/{}".format(download_folder,att_fn)
+                open(download_path,"wb").write(attachment.get('content').read())
             except:
                 print(traceback.print_exc())
 
@@ -50,3 +50,5 @@ def return_attachment(email, item_dict):
         print("Some sort of network failure happened trying to send the eamil.")
     finally:
         smtp.close()
+
+download_attachment()
