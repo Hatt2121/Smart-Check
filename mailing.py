@@ -8,7 +8,7 @@ def download_attachment():
     '''
         Will download emails with subject 'smart_list' that are also unread
     '''
-    download_folder = os.path.dirname(__file__)
+    download_folder = os.path.dirname(os.path.realpath(__file__))
     mail = imbox.Imbox('imap.gmail.com',username='smartcheck021@gmail.com',password='MatterH27h',ssl=True,ssl_context=None,starttls=False)
     messages = mail.messages(unread=True,subject="smart_list", raw='has:attachment')
 
