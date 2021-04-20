@@ -34,13 +34,12 @@ def start_up():
     t = str(a[0] + " " + a[1])
     if t == admin[0] or t == admin[1]:
         GPIO.output(red_Led,GPIO.LOW)
-        for i in range (1):
-            correct = pygame.mixer.Sound('two.wav')
-            correct.play()
-            GPIO.output(green_Led, GPIO.HIGH)
-            time.sleep(1)
-            GPIO.output(green_Led,GPIO.LOW)
-            time.sleep(.5)
+        correct = pygame.mixer.Sound('two.wav')
+        correct.play()
+        GPIO.output(green_Led, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(green_Led,GPIO.LOW)
+        time.sleep(.5)
         print("Welcome to Smart Check {} {}".format(a[0],a[1]))
         LoadScreen()
 
@@ -256,7 +255,7 @@ class SmartCheck:
         self.red_flash()
         self.inventory.clear()
         self.text.delete("1.0", "end")
-        self.text.insert(END,"\nInventory is clear\n")
+        self.text.insert(END,"Inventory is clear.\n")
 
                             
 #main code
