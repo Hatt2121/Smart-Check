@@ -3,7 +3,7 @@
 Smart check is a simple project whose aim is to ease peoples lives. It is really hard to manage and maintain inventory in a world where consistancy counts, and Smart-Check is here to solve that.
 
 ## Prerequisites
-The [`mfrc522`](https://pypi.org/project/mfrc522/) python library. Click the link to go the pip page.
+The [`mfrc522`](https://pypi.org/project/mfrc522/) python library. Click the link to go to the pip page.
 
 The [`imbox`](https://pypi.org/project/imbox/) python library. Click the link to go to the pip page.
 
