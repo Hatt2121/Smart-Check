@@ -42,7 +42,7 @@ def return_attachment(gmail, item_dict):
     '''
     file = open("return_attachment.txt","w")
     for key, value in item_dict.items():
-        file.write(key + "\n")
+        file.write(str(key) + " " +str(value) + "\n")
     file.close()
     del(file) #for some reason, you have to remove the variable and redo it.
 
