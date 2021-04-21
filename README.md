@@ -7,7 +7,7 @@ The [`mfrc522`](https://pypi.org/project/mfrc522/) python library. Click the lin
 
 The [`imbox`](https://pypi.org/project/imbox/) python library. Click the link to go to the pip page.
 
-the [`Pillow`](https://pypi.org/project/Pillow/) python library.
+the [`Pillow`](https://pypi.org/project/Pillow/) python library. Click the link to go to the pip page.
 
 ## The Code
 Other than the libraries, the actual files that we use are [`mailing.py`](mailing.py) and [`Smart_Check_GUI.py`](Smart_Check_GUI.py). We have gone through many changes and iterations of the project, and we have landed on these two files. Starting is as simple as runing 'Smart_Check_GUI.py' in an IDLE or in the console.
