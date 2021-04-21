@@ -27,3 +27,9 @@ For ease of reference
 |GND | 6 |
 | RST | 22 |
 | 3.3V | 1 |
+
+### Other
+| Output | Physical Pin |
+| --- | --- |
+| Red LED | 36 |
+| Green LED | 16 |
