@@ -13,19 +13,6 @@ Other than the libraries, the actual files that we use are [`mailing.py`](mailin
 ## Wiring:
 For ease of reference
 
-### 4.2 E-Ink Screen
-Deprecated!!
-| Output | Physical Pin |
-|----|----|
-|3.3V|1|
-|GND|6|
-|DIN|19|
-|CLK|23|
-|CS|24|
-|DC|22|
-|RST|11|
-|BUSY|18|
-
 ### RFID Scanner: RC522
 
 | Output | Physical Pin |
